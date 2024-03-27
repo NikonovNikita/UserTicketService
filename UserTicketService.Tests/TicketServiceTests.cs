@@ -15,4 +15,12 @@ public class TicketServiceTests
         var ticketServiceTest = new TicketService();
         Assert.Throws<TicketNotFoundException>(() => ticketServiceTest.GetTicketPrice(4));
     }
+
+    [Test]
+    public void GetTicketMustReturnNotNullableValue()
+    {
+        var ticketServiceTest = new TicketService();
+
+        Assert.IsNotNull(ticketServiceTest.GetTicket(1));
+    }
 }

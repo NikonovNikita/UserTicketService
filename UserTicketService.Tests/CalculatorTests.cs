@@ -2,7 +2,7 @@
 {
     internal class CalculatorTests
     {
-        private static readonly Calculator _calculator = new Calculator();
+        private static readonly Calculator _calculator = new();
 
         [Test]
         public static void MultiplyShouldReturnCorrectValue()
@@ -20,6 +20,11 @@
         public static void DivideMustThrowException()
         {
             Assert.Throws<DivideByZeroException>(() => _calculator.Divide(10, 0));
+        }
+
+        public static void DivideMustReturnCorrectValue()
+        {
+            Assert.That(_calculator.Divide(10, 2) == 5);
         }
 
         [Test]
